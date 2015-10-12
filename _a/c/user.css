@@ -1,0 +1,16 @@
+input.text        {width: 200px;}
+input.text2       {width: 400px;}
+textarea          {width: 400px; height:80px;}
+label             {font-weight: bold;}
+span.msg1         {color: #FF0000;}
+span.msg2         {font: bold italic 0.8em Arial, Helvetica, sans-serif; color: #FF0000; margin-left: 0.5em;}
+span.sub          {font: 0.8em Arial, Helvetica, sans-serif; margin-left: 0.5em;}
+span.heading      {font: bold 1em Arial, Helvetica, sans-serif; color: #33517A;}
+a.small           {font: 0.6em; margin-left: 1em;}
+#createCollLink   {position: absolute; top: 120px;}
+table.coll        {border: 1px solid #707070; border-collapse: collapse; margin-top: 0.5em; margin-bottom: 0.5em;}
+th                {text-align:left;}
+td.title          {border: 1px solid #707070; padding: 0.2em; font:0.8em Arial, Helvetica, sans-serif; width: 200px; text-align:left;}
+td.desc           {border: 1px solid #707070; padding: 0.2em; font:0.8em Arial, Helvetica, sans-serif; width: 400px; text-align:left;}
+td.default        {border: 1px solid #707070; padding: 0.2em; font:0.8em Arial, Helvetica, sans-serif; width: 1000px; text-align:left;}
+td.action         {border: 1px solid #707070; padding: 0.2em; font:0.8em Arial, Helvetica, sans-serif; width: 50px; text-align:center;}

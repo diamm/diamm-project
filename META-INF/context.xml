@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<Context>
+  <Realm className="org.apache.catalina.realm.JDBCRealm" digest="MD5" debug="99"
+         driverName="com.mysql.jdbc.Driver"
+         connectionURL="jdbc:mysql://my-stg-1.cch.kcl.ac.uk:3306/diamm_ess"
+         connectionName="diamm2" connectionPassword="chah3Toz"
+         userTable="DiammUser" userNameCol="username" userCredCol="passwd"
+         userRoleTable="UserRole" roleNameCol="rolename" />
+</Context>-->
+
+        <Context>
+  <Realm className="org.apache.catalina.realm.JDBCRealm" digest="MD5" debug="99"
+         driverName="com.mysql.jdbc.Driver"
+         connectionURL="jdbc:mysql://my-stg-1.cch.kcl.ac.uk:3306/diamm_ess"
+         connectionName="ehall" connectionPassword="fu0EAhko"
+         userTable="DiammUser" userNameCol="username" userCredCol="passwd"
+         userRoleTable="UserRole" roleNameCol="rolename" />
+</Context>
+
+

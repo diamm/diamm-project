@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+           version="2.5">
+
+    <listener>
+        <listener-class>uk.ac.kcl.cch.diamm.servlet.InitListener</listener-class>
+    </listener>
+
+    <!-- Increase the duration of Tomcat's default 30min timeout -->
+    <session-config>
+	    <session-timeout>600</session-timeout>
+	</session-config>
+
+    <context-param>
+        <param-name>bibDefaultRowsPerPage</param-name>
+        <param-value>10</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>bibDefaultPageRange</param-name>
+        <param-value>3</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>DIAMMFacet</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.DIAMMFacetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DIAMMFacet</servlet-name>
+        <url-pattern>/jsp/FacetManager</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DIAMMBibliography</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.DIAMMBibliographyServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DIAMMBibliography</servlet-name>
+        <url-pattern>/jsp/Bibliography</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DIAMMBibliographyDetail</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.DIAMMBibliographyDetailServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DIAMMBibliographyDetail</servlet-name>
+        <url-pattern>/jsp/BibliographyDetail</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>DIAMMManagerServlet</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.SearchManagerServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DIAMMManagerServlet</servlet-name>
+        <url-pattern>/jsp/SearchManager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CollectionLink</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.CollectionLinkServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CollectionLink</servlet-name>
+        <url-pattern>/jsp/CollectionLink</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CollectionManage</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.CollectionManageServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CollectionManage</servlet-name>
+        <url-pattern>/jsp/CollectionManage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Descriptions</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.DIAMMDescriptionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Descriptions</servlet-name>
+        <url-pattern>/jsp/Descriptions</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Annotation</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.DIAMMAnnotationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Annotation</servlet-name>
+        <url-pattern>/jsp/AnnotationManager</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ImageProxy</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.ImageProxy</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ImageProxy</servlet-name>
+        <url-pattern>/jsp/ImageProxy/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>userAccess</servlet-name>
+        <servlet-class>uk.ac.kcl.cch.diamm.servlet.UserAccessServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userAccess</servlet-name>
+        <url-pattern>/jsp/UserAccess</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>jsp_protected_root</param-name>
+        <param-value>/jsp/</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>jspRoot</param-name>
+        <param-value>/jsp/</param-value>
+    </context-param>
+	
+    <!-- Security role definitions -->
+    <security-role>
+        <description>Registered Users Access Role</description>
+        <role-name>registered</role-name>
+    </security-role>
+	
+    <!-- Resources restricted to registered users -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>resource_registered</web-resource-name>
+            <url-pattern>/jsp/myDiamm.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>registered</role-name>
+        </auth-constraint>
+    </security-constraint>
+	
+    <!-- Authentication method -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/jsp/login.jsp</form-login-page>
+            <form-error-page>/jsp/login.jsp?retry=true</form-error-page>
+        </form-login-config>
+    </login-config>
+</web-app>
