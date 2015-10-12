@@ -4,10 +4,10 @@
     <persistence-unit name="NewPeristenceUnit">
         <class>uk.ac.kcl.cch.diamm.model.FacetCriterionEntity</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://my-stg-1.cch.kcl.ac.uk:3306/diamm_ess"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/diamm_ess"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="ehall"/>
-            <property name="hibernate.connection.password" value="fu0EAhko"/>
+            <property name="hibernate.connection.username" value=""/>
+            <property name="hibernate.connection.password" value=""/>
         </properties>
     </persistence-unit>
 </persistence>
